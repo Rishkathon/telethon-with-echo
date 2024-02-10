@@ -163,7 +163,7 @@ async def background_task(phonex, bot_username, sudo, send_to):
                                 "chat_id": sudo,
                                 "text": "- تم مغادرة : "+str(chat)+" -> بسبب انتهاء مده الاشتراك"+f" \n\n- {phonex}"
                             })
-                            await asyncio.sleep(random.randint(1.1))
+                            await asyncio.sleep(random.randint(3,10))
                         except Exception as e:
                             print(f"Error: {str(e)}")
                 requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", json={
@@ -216,7 +216,7 @@ async def background_task(phonex, bot_username, sudo, send_to):
                             return 0
                         continue
                     except Exception as e:
-                        timeoutt = random.randint(86,400)
+                        timeoutt = random.randint(200,400)
                         requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", json={
                             "chat_id": sudo,
                             "text": f"- خطا : انتظار {timeoutt} ثانيه \n\n{str(e)}\n\n- {phonex}"
