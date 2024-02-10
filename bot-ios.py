@@ -411,7 +411,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("مرحبا بك في سورس التجميع :\n\n- اشترك في القناة لمشاهدة الجديد : @Rb55aa\n\n- سرعة التجميع : " + str(info["sleeptime"]), reply_markup=reply_markup)
+            await update.message.reply_text("مرحبا بك في سورس التجميع :\n\n- اشترك في القناة : @Rb55aa\n\n- سرعة التجميع : " + str(info["sleeptime"]), reply_markup=reply_markup)
         elif str(update.message.chat.id) in info["admins"]:
             what_need_to_do_echo[str(update.message.chat.id)] = ""
             keyboard = [
@@ -425,7 +425,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببوتات ايكو :\n\n- سرعة التجميع : " + str(info["sleeptime"]), reply_markup=reply_markup)
+            await update.message.reply_text("مرحبا بك في سورس التجميع :\n\n- سرعة التجميع : " + str(info["sleeptime"]), reply_markup=reply_markup)
 
 def contact_validate(text):
     text = str(text)  
