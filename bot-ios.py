@@ -269,7 +269,7 @@ async def background_task(phonex, bot_username, sudo, send_to):
                             return 0
                         continue
                     except Exception as e:
-                        timeoutt = random.randint(200,400)
+                        timeoutt = random.randint(100,200)
                         requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", json={
                             "chat_id": sudo,
                             "text": f"- خطا : انتظار {timeoutt} ثانيه \n\n{str(e)}\n\n- {phonex}"
@@ -291,7 +291,7 @@ async def background_task(phonex, bot_username, sudo, send_to):
                 response = requests.request(
                     "GET", f"https://bot.keko.dev/api/?token={echo_token}&to_id={send_to}&done="+response_json.get("return", ""))
                 response_json = response.json()
-                timeoutt = random.randint(int(info["sleeptime"]),(int(info["sleeptime"])*1.3))
+                timeoutt = random.randint(int(info["sleeptime"]),(int(info["sleeptime"])*1.1))
                 if not response_json.get("ok", False):
                     requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", json={
                         "chat_id": sudo,
