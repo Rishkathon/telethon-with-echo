@@ -249,7 +249,7 @@ async def background_task(phonex, bot_username, sudo, send_to):
                         except Exception as e:
                             print(f"Error: {str(e)}")
                     except errors.FloodWaitError as e:
-                        timeoutt = random.randint(e.seconds,e.seconds+1000)
+                        timeoutt = random.randint(e.seconds,e.seconds+900)
                         requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", json={
                             "chat_id": sudo,
                             "text": f"- تم حظر الرقم : انتظار {timeoutt} ثانيه \n\n- {phonex}"
